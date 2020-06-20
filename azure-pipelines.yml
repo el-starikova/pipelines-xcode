@@ -12,7 +12,7 @@ pool:
 variables:
   scheme: 'iOSHelloWorld'
   sdk: 'iphoneos'
-  configuration: 'Release'
+  configuration: 'Debug'
 
 steps:
 - task: Xcode@5
@@ -23,4 +23,8 @@ steps:
     configuration: '$(configuration)'
     xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    packageApp: false
+    packageApp: true
+    signingOption: auto
+    exportMethod: development
+    exportTeamId: 295V93MN3X
+    teamId: 295V93MN3X
