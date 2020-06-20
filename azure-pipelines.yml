@@ -24,6 +24,7 @@ steps:
     xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     packageApp: true
+    teamId: 3B4S23SFDK
 
 - task: ArchiveFiles@2
   displayName: 'Package .xcarchive into a zip file'
