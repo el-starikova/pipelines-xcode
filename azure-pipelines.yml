@@ -16,9 +16,6 @@ variables:
 
 steps:
 
-- task: CmdLine@2
-  inputs:
-    script: 'xcodebuild -allowProvisioningUpdates'
 - task: Xcode@5
   inputs:
     actions: 'clean build'
@@ -28,9 +25,3 @@ steps:
     xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     packageApp: false
-    signingOption: auto
-    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
-    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
-    exportMethod: development
-    exportTeamId: 295V93MN3X
-    teamId: 295V93MN3X
