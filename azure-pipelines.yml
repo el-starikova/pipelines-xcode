@@ -25,6 +25,8 @@ steps:
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     packageApp: true
     signingOption: auto
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
     exportMethod: development
     exportTeamId: 295V93MN3X
     teamId: 295V93MN3X
