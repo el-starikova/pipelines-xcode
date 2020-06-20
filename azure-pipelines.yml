@@ -23,4 +23,17 @@ steps:
     configuration: '$(configuration)'
     xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    packageApp: false
+    packageApp: true
+
+- task: ArchiveFiles@2
+  displayName: 'Package .xcarchive into a zip file'
+  inputs:
+    rootFolderOrFile: '$(agent.buildDirectory)/output/$(sdk)/$(configuration-staging)'
+    archiveType: 'zip'
+    archiveFile: '$(build.artifactStagingDirectory)/iOSHelloWorld-$(Build.BuildId).zip'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(build.artifactStagingDirectory)/iOSHelloWorld-$(Build.BuildId).zip'
+    artifactName: 'iOSHelloWorld-$(Build.BuildId).zip'
+    artifactType: 'container'
